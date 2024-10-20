@@ -103,3 +103,4 @@ The script generates two outputs:
   - Bounding boxes for text regions
   - Confidence scores
   - Detected text display
+    ![Detected texts(detected_texts.png)
