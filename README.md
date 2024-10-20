@@ -67,6 +67,15 @@ The script generates two outputs:
    - Keys are the headers (first text in each cluster)
    - Values are the corresponding content (remaining text in the cluster)
 
+```
+{
+    "Ashoka Chakra.": "Dharma Chakra (wheel of Law)",
+    "Saffron": "Represents strength and courage",
+    "Whited": "Symbolizes peace and truth",
+    "Green": "Represents fertility, growth, and auspiciousness of the land"
+}
+```
+
 ## Technical Approach
 
 ### 1. Text Detection and Recognition

@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from paddleocr import PaddleOCR
 import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans, DBSCAN
+from sklearn.cluster import KMeans
 import sys
 import json
 
