@@ -17,6 +17,7 @@ def extract_texts(image_path, num_clusters,lang='en'):
     
     structured_text = structure_text(results[0] if results else [], image.shape[0], image.shape[1],num_clusters)
 
+    # VIsualization
     plt.figure(figsize=(15, 15))
     plt.imshow(image_rgb)
     
@@ -60,7 +61,7 @@ def structure_text(results, image_height, image_width,num_clusters):
         
         y_center = top + height / 2
         x_center = left + width / 2
-        if(confidence >= 0.80):
+        if(confidence >= 0.80): # Filtering out low confidence boxes (Low confidence boxes include arrows and other unwanted characters)
             
             text_blocks.append({
                 'text': text,
@@ -80,14 +81,14 @@ def structure_text(results, image_height, image_width,num_clusters):
     db = KMeans(n_clusters = num_clusters).fit(positions) #The number of clusters should be given as the input
 
     clusters = {}
-    for idx, block in enumerate(text_blocks):
+    for idx, block in enumerate(text_blocks): # Assigning every detection to a cluster
         label = db.labels_[idx]
         if label not in clusters:
             clusters[label] = []
         clusters[label].append(block)
     
     texts = {}
-    for label, cluster_blocks in clusters.items():
+    for label, cluster_blocks in clusters.items(): # Sorting all the boxes with respect to their y-coordinates
         cluster_blocks.sort(key=lambda x: x['properties']['top'])
         header = cluster_blocks[0]['text']
         texts[header] = [block['text'] for block in cluster_blocks[1:]]
@@ -111,6 +112,8 @@ num_clusters = int(sys.argv[2])
 structured_text = extract_texts(image_path,num_clusters)
 
 ans = format(structured_text)
+
 with open('data.json', 'w') as json_file:
     json.dump(ans, json_file, indent=4)
+    
 print(ans)
