@@ -106,4 +106,4 @@ The script generates two outputs:
  
 
 ### 
-![Detected texts(detected_texts.png)
+![Detected texts](detected_texts.png)
