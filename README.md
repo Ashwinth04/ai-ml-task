@@ -1,4 +1,4 @@
-# OCR Text Extraction Tool
+# AI ML Task
 
 This tool extracts text from images using PaddleOCR and organizes the detected text into structured clusters. It generates both a visual output showing the detected text regions and a JSON file containing the extracted text data.
 
@@ -24,7 +24,7 @@ pip install matplotlib
 pip install scikit-learn
 ```
 
-## Installation
+## Steps to run the code
 
 1. Clone this repository:
 ```bash
@@ -51,7 +51,7 @@ python main.py <image_path> <number_of_text_areas>
 
 ### Example:
 ```bash
-python main.py sample_image.jpg 3
+python main.py sample2.png 4
 ```
 
 ## Output
@@ -80,7 +80,7 @@ The script generates two outputs:
 
 ### 1. Text Detection and Recognition
 - Uses PaddleOCR for robust text detection and recognition
-- Configures detection parameters:
+- Detection parameters:
   - `use_angle_cls=True` for rotated text detection
   - `det_db_thresh=0.3` for text detection sensitivity
   - `det_db_box_thresh=0.5` for bounding box confidence
@@ -103,23 +103,3 @@ The script generates two outputs:
   - Bounding boxes for text regions
   - Confidence scores
   - Detected text display
-
-## Limitations
-
-- Requires manual input of the number of text clusters
-- Performance may vary with image quality and text layout
-- Dependent on PaddleOCR's detection accuracy
-- May not perform optimally on complex layouts or heavily stylized text
-
-## Troubleshooting
-
-If you encounter issues:
-
-1. Ensure all dependencies are correctly installed
-2. Check if the input image path is valid
-3. Verify that the number of clusters matches the actual text layout
-4. Try adjusting the confidence threshold in the code if needed
-
-## Contributing
-
-Feel free to submit issues, fork the repository, and create pull requests for any improvements.
